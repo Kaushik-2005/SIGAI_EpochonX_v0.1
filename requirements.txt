@@ -4,3 +4,5 @@ langchain-google-genai
 google-generativeai
 python-dotenv
 python-docx
+langchain-nvidia-ai-endpoints
+streamlit
