@@ -1,12 +1,109 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-</head>
-<body>
-    <h1>Welcome to your Dashboard, {{ current_user.username }}!</h1>
-    <a href="{{ url_for('main_routes.logout') }}">Logout</a>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Report Dashboard</h4>
+                    <p>Welcome to your Dashboard, {{ current_user.username }}! This is your personalized dashboard.</p>
+                </div>
+                <div class="card-body">
+                    <form method="POST" action="#">
+                        <!-- CSRF token for security -->
+                        {% csrf_token %}
+                        
+                        <!-- Report Period -->
+                        <div class="mb-3">
+                            <label for="report_period" class="form-label">Report Period</label>
+                            <input type="text" class="form-control" id="report_period" name="report_period" required>
+                        </div>
+                        
+                        <!-- Start Date -->
+                        <div class="mb-3">
+                            <label for="start_date" class="form-label">Start Date</label>
+                            <input type="date" class="form-control" id="start_date" name="start_date" required>
+                        </div>
+
+                        <!-- End Date -->
+                        <div class="mb-3">
+                            <label for="end_date" class="form-label">End Date</label>
+                            <input type="date" class="form-control" id="end_date" name="end_date" required>
+                        </div>
+                        
+                        <!-- Team Name or Project -->
+                        <div class="mb-3">
+                            <label for="team_name_or_project" class="form-label">Team Name or Project</label>
+                            <input type="text" class="form-control" id="team_name_or_project" name="team_name_or_project" required>
+                        </div>
+
+                        <!-- Prepared By -->
+                        <div class="mb-3">
+                            <label for="prepared_by" class="form-label">Prepared By</label>
+                            <input type="text" class="form-control" id="prepared_by" name="prepared_by" required>
+                        </div>
+
+                        <!-- Overview -->
+                        <div class="mb-3">
+                            <label for="overview" class="form-label">Overview</label>
+                            <textarea class="form-control" id="overview" name="overview" rows="3"></textarea>
+                        </div>
+
+                        <!-- Team Member Contributions -->
+                        <div class="mb-3">
+                            <label for="team_member_contributions" class="form-label">Team Member Contributions</label>
+                            <textarea class="form-control" id="team_member_contributions" name="team_member_contributions" rows="3"></textarea>
+                        </div>
+
+                        <!-- Key Achievements -->
+                        <div class="mb-3">
+                            <label for="key_achievements" class="form-label">Key Achievements</label>
+                            <textarea class="form-control" id="key_achievements" name="key_achievements" rows="3"></textarea>
+                        </div>
+
+                        <!-- Challenges and Issues -->
+                        <div class="mb-3">
+                            <label for="challenges_and_issues" class="form-label">Challenges and Issues</label>
+                            <textarea class="form-control" id="challenges_and_issues" name="challenges_and_issues" rows="3"></textarea>
+                        </div>
+
+                        <!-- Action Items for Next Period -->
+                        <div class="mb-3">
+                            <label for="action_items_for_next_period" class="form-label">Action Items for Next Period</label>
+                            <textarea class="form-control" id="action_items_for_next_period" name="action_items_for_next_period" rows="3"></textarea>
+                        </div>
+
+                        <!-- Additional Notes -->
+                        <div class="mb-3">
+                            <label for="additional_notes" class="form-label">Additional Notes</label>
+                            <textarea class="form-control" id="additional_notes" name="additional_notes" rows="3"></textarea>
+                        </div>
+
+                        <!-- Sign Off Name -->
+                        <div class="mb-3">
+                            <label for="sign_off_name" class="form-label">Sign Off Name</label>
+                            <input type="text" class="form-control" id="sign_off_name" name="sign_off_name" required>
+                        </div>
+
+                        <!-- Sign Off Position -->
+                        <div class="mb-3">
+                            <label for="sign_off_position" class="form-label">Sign Off Position</label>
+                            <input type="text" class="form-control" id="sign_off_position" name="sign_off_position" required>
+                        </div>
+
+                        <!-- Sign Off Date -->
+                        <div class="mb-3">
+                            <label for="sign_off_date" class="form-label">Sign Off Date</label>
+                            <input type="date" class="form-control" id="sign_off_date" name="sign_off_date" required>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button type="submit" class="btn btn-primary">Submit Report</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
