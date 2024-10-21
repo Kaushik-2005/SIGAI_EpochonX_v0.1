@@ -125,7 +125,7 @@ if __name__ == "__main__":
     report = generator.generate_and_save_report(test_inputs)
     
     # print("\nGenerated Progress Report:")
-    # print(report)
+    print(report)
 
     # Uncomment the following lines if you want to test with user input
     # user_inputs = generator.get_user_input()
