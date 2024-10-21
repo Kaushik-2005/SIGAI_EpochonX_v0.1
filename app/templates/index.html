@@ -1,12 +1,49 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-</head>
-<body>
-    <h1>Welcome to your Dashboard, {{ current_user.username }}!</h1>
-    <a href="{{ url_for('main_routes.logout') }}">Logout</a>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Welcome to your Dashboard, {{ current_user.username }}!</h1>
+            <p>This is your personalized dashboard.</p>
+
+            <div class="row">
+                <!-- Example cards -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header">
+                            Users
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">{{ users_count }}</h5>
+                            <p class="card-text">Total Registered Users</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header bg-success text-white">
+                            Posts
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">5</h5>
+                            <p class="card-text">New Posts</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header bg-info text-white">
+                            Notifications
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">3</h5>
+                            <p class="card-text">You have 3 new notifications.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
