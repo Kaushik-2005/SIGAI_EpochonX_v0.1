@@ -6,3 +6,4 @@ python-dotenv
 python-docx
 langchain-nvidia-ai-endpoints
 streamlit
+bs4
