@@ -22,3 +22,17 @@ class User(db.Model, UserMixin):
         """Hash the password and create a new user."""
         hashed_password = bcrypt.generate_password_hash(password).decode('utf-8')
         return cls(username=username, email=email, password=hashed_password)
+
+class Mentors(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    mentors = db.Column(db.String(100), unique=True, nullable=False)
+
+    def __repr__(self):
+        return f"<Mentors {self.mentors}>"
+
+class Students(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    students = db.Column(db.String(100), unique=True, nullable=False)
+
+    def __repr__(self):
+        return f"<Students {self.students}>"

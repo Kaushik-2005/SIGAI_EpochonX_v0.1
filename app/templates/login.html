@@ -4,22 +4,73 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #7E8CEE;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .login-container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .login-container h1 {
+            margin-bottom: 30px;
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .form-control {
+            border-radius: 30px;
+            padding: 10px 20px;
+        }
+        .btn-primary {
+            width: 100%;
+            border-radius: 30px;
+            padding: 10px;
+        }
+        .forgot-password {
+            text-align: right;
+            font-size: 0.9em;
+        }
+    </style>
 </head>
 <body>
+
+<div class="login-container">
     <h1>Login</h1>
     <form method="POST" action="{{ url_for('main_routes.login') }}">
         {{ form.hidden_tag() }}
-        <div>
-            {{ form.email.label }}
-            {{ form.email() }}
+
+        <div class="form-group">
+            {{ form.email.label(class="form-label") }}
+            {{ form.email(class="form-control", placeholder="Enter your email") }}
         </div>
-        <div>
-            {{ form.password.label }}
-            {{ form.password() }}
+
+        <div class="form-group">
+            {{ form.password.label(class="form-label") }}
+            {{ form.password(class="form-control", placeholder="Enter your password") }}
         </div>
-        <div>
-            {{ form.submit() }}
+
+        <div class="forgot-password mb-3">
+            <a href="/register">Register Now</a>
+        </div>
+
+        <div class="form-group">
+            {{ form.submit(class="btn btn-primary") }}
         </div>
     </form>
+</div>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
