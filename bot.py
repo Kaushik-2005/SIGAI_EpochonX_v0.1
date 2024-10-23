@@ -12,7 +12,6 @@ class ProgressReportGenerator:
         genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
         self.model = ChatGoogleGenerativeAI(model="gemini-1.5-pro")
         
-        # Updated prompt template to match the new progress report structure
         self.prompt_template = ChatPromptTemplate.from_messages([
             ("system", "You are an AI assistant that generates progress reports based on the given information. Format the report clearly using plain text. Ensure headings are in uppercase, and member names are emphasized with colons. Use indentation and line breaks for clean, readable structure."),
             ("human", """Please generate a progress report using the following information:
